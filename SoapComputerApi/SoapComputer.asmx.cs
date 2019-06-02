@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SoapComputerApi.Dao;
+using SoapComputerApi.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -18,9 +20,15 @@ namespace SoapComputerApi
     {
 
         [WebMethod]
-        public string ComputerTitle()
+        public List<Computer> GetAll()
         {
-            return "Ordinateurs";
+            return ComputerDao.GetAll();
+        }
+
+        [WebMethod]
+        public Computer GetById(string id)
+        {
+            return ComputerDao.GetById(id);
         }
     }
 }
